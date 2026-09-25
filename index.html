@@ -155,7 +155,7 @@ nav.main-nav a.active::after {
 .hero {
     min-height: 100vh; display: flex; align-items: center; padding: 8.5rem 0 3rem; position: relative; overflow: hidden;
 }
-.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
 .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.9rem 0.4rem 0.6rem;
     background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
@@ -230,21 +230,22 @@ nav.main-nav a.active::after {
     margin-top: 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem;
 }
 .stat-cell {
-    position: relative; overflow: hidden; padding: 1.4rem 1.2rem 1.3rem;
-    display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start;
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    position: relative; overflow: hidden; padding: 1.5rem 1.3rem 1.4rem;
+    display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;
+    background: linear-gradient(165deg, var(--surface) 0%, var(--surface2) 130%);
+    border: 1px solid var(--border); border-radius: 16px;
     box-shadow: var(--shadow); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 .stat-cell::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--stat-accent, var(--teal)); opacity: 0.9;
+    content: ''; position: absolute; top: -30%; right: -20%; width: 120px; height: 120px; border-radius: 50%;
+    background: var(--stat-accent, var(--teal)); opacity: 0.16; filter: blur(22px); pointer-events: none;
 }
 .stat-cell:hover { transform: translateY(-5px); border-color: var(--stat-accent, var(--teal)); box-shadow: 0 22px 44px rgba(0,0,0,0.32); }
 .stat-icon {
-    width: 42px; height: 42px; border-radius: 12px;
-    background: color-mix(in srgb, var(--stat-accent, var(--teal)) 18%, transparent);
-    color: var(--stat-accent, var(--teal));
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem;
+    position: relative; width: 44px; height: 44px; border-radius: 13px;
+    background: linear-gradient(135deg, var(--stat-accent, var(--teal)) 0%, color-mix(in srgb, var(--stat-accent, var(--teal)) 55%, black) 100%);
+    color: #04120f; box-shadow: 0 8px 18px color-mix(in srgb, var(--stat-accent, var(--teal)) 45%, transparent);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.25rem;
 }
 .stat-cell-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-soft); margin-bottom: 0.3rem; }
 .stat-cell-value { font-size: 0.92rem; font-weight: 600; line-height: 1.4; }
@@ -259,7 +260,7 @@ nav.main-nav a.active::after {
 
 /* ══════════════ ABOUT ══════════════ */
 .about-section { padding: 5rem 0; }
-.about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: start; }
 .about-photo-card {
     border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border);
     box-shadow: var(--shadow); position: relative; aspect-ratio: 4/5; background: var(--surface2);
@@ -395,6 +396,7 @@ nav.main-nav a.active::after {
 
 /* ══════════════ GAMES ══════════════ */
 .games-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.games-cta { display: flex; justify-content: center; margin-top: 2.4rem; }
 .game-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.35s, box-shadow 0.4s; display: flex; flex-direction: column;
@@ -621,7 +623,7 @@ footer.site-footer { border-top: 1px solid var(--border); padding: 3.2rem 0 2rem
                 <svg id="themeIconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
             </button>
             <a href="#connect" class="icon-btn avatar-btn" title="Contact">
-                <img src="https://drive.google.com/thumbnail?id=1EnY5XqUaMO9YaoglCO1sKIFeIptd7rQw&sz=w100" alt="Al-Fadhil" onerror="this.parentElement.innerHTML='👤'">
+                <img src="https://drive.google.com/thumbnail?id=1dU1cgZNW2wmvmrgJeRzSsC4nSsgA3SSQ&sz=w100" alt="Al-Fadhil" onerror="this.parentElement.innerHTML='👤'">
             </a>
         </div>
     </div>
@@ -666,15 +668,6 @@ footer.site-footer { border-top: 1px solid var(--border); padding: 3.2rem 0 2rem
             </div>
         </div>
 
-        <div class="hero-photo-wrap reveal-right visible">
-            <div class="hero-blob"></div>
-            <div class="hero-photo">
-                <img id="avatarImg" src="https://drive.google.com/thumbnail?id=1dU1cgZNW2wmvmrgJeRzSsC4nSsgA3SSQ&sz=w600" alt="Al-Fadhil Muhammad Humam" onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';">
-                <div class="avatar-fallback" id="avatarFallback" style="display:none;">🧑‍🎨</div>
-            </div>
-            <div class="hero-float-chip c1"><span class="dot"></span> Available for Work</div>
-            <div class="hero-float-chip c2">⚡ 60+ Works Delivered</div>
-        </div>
     </div>
 </section>
 
@@ -689,10 +682,6 @@ footer.site-footer { border-top: 1px solid var(--border); padding: 3.2rem 0 2rem
             <h2 class="sec-title">Crafting Digital Worlds</h2>
         </div>
         <div class="about-grid">
-            <div class="about-photo-card reveal-left">
-                <img src="https://drive.google.com/thumbnail?id=1EnY5XqUaMO9YaoglCO1sKIFeIptd7rQw&sz=w600" alt="Al-Fadhil Muhammad Humam" onerror="this.src='https://i.imgur.com/yhYVJAz.jpeg'">
-                <div class="about-photo-badge"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--teal);"></span> Al-Fadhil Muhammad Humam — 3D Artist</div>
-            </div>
             <div class="about-content reveal-right">
                 <div class="about-text">
                     <p>I am a 3D Artist with a strong passion for creating game-ready assets and immersive environments. I enjoy working in various styles, from stylized to semi-realistic, and always strive to deliver high-quality visuals that enhance the player experience.</p>
@@ -787,6 +776,10 @@ footer.site-footer { border-top: 1px solid var(--border); padding: 3.2rem 0 2rem
             <p class="sec-sub">PC games I've worked on as a 3D Artist — from horror survival to racing and puzzle games.</p>
         </div>
         <div class="games-grid" id="gamesGrid"></div>
+
+        <div class="games-cta reveal">
+            <a href="https://lidhhh.itch.io/" target="_blank" class="btn btn-outline btn-sm">View More on Itch.io ↗</a>
+        </div>
     </div>
 </section>
 
